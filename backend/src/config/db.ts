@@ -12,7 +12,7 @@ export const pool = mysql.createPool({
   ...(env.db.ssl
     ? {
         ssl: {
-          rejectUnauthorized: true,
+          rejectUnauthorized: false,
         },
       }
     : {}),
