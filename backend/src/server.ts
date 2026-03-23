@@ -1,13 +1,14 @@
 import { createApp } from "./app";
 import { env } from "./config/env";
+import { pool } from "./config/db";
 
 const app = createApp();
 
-app.listen(env.port, "0.0.0.0", () => {
-  console.log(`Backend listening on 0.0.0.0:${env.port}`);
-});
+const PORT = Number(process.env.PORT) || env.port || 4000;
 
-import { pool } from "./config/db";
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Backend listening on ${PORT}`);
+});
 
 (async () => {
   try {
